@@ -90,7 +90,7 @@
         @foreach ($destinations->shuffle()->take(10) as $destination)
         <div class="swiper-slide">
           <a href="/tour/{{ $destination->package->slug }}#{{ $destination->name }}" class="basis-1/2 md:basis-1/3 lg:basis-1/5 px-2 md:px-4">
-            <div class="w-full md:h-64 h-56 rounded-xl shadow-lg overflow-hidden relative group">
+            <div class="w-full md:h-64 h-56 rounded-xl shadow-lg ovierflow-hdden relative group">
               <div class="h-16 w-full z-20 absolute bottom-0 flex flex-col items-center justify-center bg-white px-2">
                 <p class="text-sm font-light">{{ $destination->package->name }}</p>
                 <h4 class="text-gray-700 text-center font-subtitle text-xl z-30">{{ $destination->name}}</h4>

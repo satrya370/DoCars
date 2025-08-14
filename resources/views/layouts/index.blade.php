@@ -66,6 +66,10 @@
         <i class="icofont-brand-whatsapp icofont-2x"></i>
     </a>
   @endif
+{{-- ... Konten lain di layout Anda ... --}}
+
+    {{-- Tambahkan script Alpine.js di sini --}}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 
   <script src="/js/script.js"></script>

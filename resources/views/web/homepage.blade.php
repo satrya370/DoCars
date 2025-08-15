@@ -5,13 +5,35 @@
   <livewire-navbar />
   
   {{-- jumbotron --}}
-    <div class="bg-[url('../../public/img/cliff.jpg')] min-w-screen h-screen bg-cover bg-no-repeat bg-fixed bg-center relative flex items-center justify-center flex-col after:content-[''] after:block after:w-full after:h-screen after:absolute after:top-0 after:bg-gradient-to-b after:from-black/30 -z-10">
-      <div class="container mx-auto z-50 text-center">
-        <h1 class="text-5xl text-white leading-relaxed font-title mb-1">Enjoy your Holiday in Bali with <br> MyTourBali</h1>
-        <div class="line-pattern mx-auto"></div>
-      </div>
-    </div>
+<div class="swiper swiper-jumbotron w-full h-screen"> {{-- <-- 1. TAMBAHKAN CLASS INI --}}
+    <div class="swiper-wrapper"> {{-- <-- 2. HAPUS CLASS FLEXBOX DARI SINI --}}
 
+        {{-- Slide 1 --}}
+        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1558005530-a7958896ec60?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"> {{-- <-- 3. PINDAHKAN CLASS FLEXBOX KE SINI --}}
+            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-4">
+                Jelajahi Surga Tersembunyi
+            </h1>
+        </div>
+        
+        {{-- Slide 2 --}}
+        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"> {{-- <-- 3. PINDAHKAN CLASS FLEXBOX KE SINI --}}
+            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-4">
+                Santai & Lepaskan Penat
+            </h1>
+        </div>
+        
+        {{-- Slide 3 --}}
+        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('...');"> {{-- <-- 3. PINDAHKAN CLASS FLEXBOX KE SINI --}}
+            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-4">
+                Nikmati Keindahan Alam
+            </h1>
+        </div>
+
+    </div>
+    
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
 
   {{-- about --}}
   <section class="about" id="about">
@@ -28,7 +50,7 @@
         </div>
         <div class="hidden md:w-1/2 md:flex md:items-center md:p-3 lg:p-6">
           <figure>
-            <img src="img/pantai.jpg" alt="" class="rounded-xl shadow-lg" loading="lazy">
+            <img src="img/banner.jpg" alt="" class="rounded-xl shadow-lg" loading="lazy">
             <figcaption class="text-sm text-gray-500">*klingking beach</figcaption>
           </figure>
         </div>
@@ -38,7 +60,7 @@
 
  {{-- Why Choose Us --}}
 <section class="why-choose-us" id="why-choose-us">
-  <div class="py-20 w-full bg-gray-200">
+  <div class="py-20 w-full">
     <div class="container mx-auto px-6 md:px-10">
 
       {{-- Judul Section --}}
@@ -98,15 +120,14 @@
   {{-- -------------------------------------------------- --}}
   <div class="container mx-auto px-4 md:px-10 mb-24">
     <h1 class="title">Top Destinations</h1>
-    {{-- Layout Grid untuk 4 Kartu --}}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-12">
-      @foreach ($packages->take(4) as $package)
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      @foreach ($packages->take(3) as $package)
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col group">
           <div class="relative">
             <img src="{{ asset('storage/'.$package->image_cover) }}" alt="Image of {{ $package->name }}" class="w-full h-56 object-cover" loading="lazy">
           </div>
           <div class="p-5 flex flex-col flex-grow">
-            <p class="text-sm text-gray-500">{{ $package->location ?? 'Kintamani, Bali' }}</p>
+            {{-- <p class="text-sm text-gray-500">{{ $package->location ?? 'Kintamani, Bali' }}</p> --}}
             <h3 class="text-xl font-bold font-subtitle mt-1 mb-3 text-gray-800">{{ $package->name }}</h3>
             <p class="text-gray-600 text-sm leading-relaxed flex-grow">
               {{ \Illuminate\Support\Str::limit($package->description, 120, '...') }}
@@ -396,4 +417,20 @@
   @include('components.footer')
   
 
+@endsection
+
+@section('scripts')
+<script>
+    var swiperJumbo = new Swiper(".swiper-jumbotron", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        loop: true, // Membuat slider dapat berputar tanpa henti
+        autoplay: {
+            delay: 4000, // Pindah slide otomatis setiap 4 detik
+            disableOnInteraction: false,
+        },
+    });
+</script>
 @endsection

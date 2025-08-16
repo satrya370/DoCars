@@ -5,41 +5,37 @@
   <livewire-navbar />
   
   {{-- jumbotron --}}
-<div class="swiper swiper-jumbotron w-full h-screen"> {{-- <-- 1. TAMBAHKAN CLASS INI --}}
-    <div class="swiper-wrapper"> {{-- <-- 2. HAPUS CLASS FLEXBOX DARI SINI --}}
+<div class="swiper swiper-jumbotron w-full h-screen">
+    <div class="swiper-wrapper">
 
-        {{-- Slide 1 --}}
-        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1558005530-a7958896ec60?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"> {{-- <-- 3. PINDAHKAN CLASS FLEXBOX KE SINI --}}
-            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-4">
+        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1558005530-a7958896ec60?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"> 
+            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-10 md:px-4">
                 Jelajahi Surga Tersembunyi
             </h1>
         </div>
         
-        {{-- Slide 2 --}}
-        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"> {{-- <-- 3. PINDAHKAN CLASS FLEXBOX KE SINI --}}
-            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-4">
+        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-10 md:px-4">
                 Santai & Lepaskan Penat
             </h1>
         </div>
         
-        {{-- Slide 3 --}}
-        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('...');"> {{-- <-- 3. PINDAHKAN CLASS FLEXBOX KE SINI --}}
-            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-4">
+        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('...');">
+            <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-10 md:px-4">
                 Nikmati Keindahan Alam
             </h1>
         </div>
 
     </div>
     
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next mr-3 md:mr-10"></div>
+    <div class="swiper-button-prev ml-3 md:ml-10"></div>
 </div>
 
   {{-- about --}}
   <section class="about" id="about">
     <div class="container mx-auto px-4 lg:px-20 py-20">
       <h1  class="text-center font-title text-3xl mb-3 mb:text-6xl">About Me</h1>
-      <div class="line-pattern mx-auto"></div>
       <div class="flex justify-evenly lg:items-center">
         <div class="w-full md:w-1/2 md:pr-5 lg:pr-20">
           <h3 class="mt-5 text-2xl font-subtitle font-bold lg:text-3xl">Forget Busy Work, and Enjoy your Holiday</h3>
@@ -119,9 +115,9 @@
   {{-- ----------------- TOP DESTINATIONS ----------------- --}}
   {{-- -------------------------------------------------- --}}
   <div class="container mx-auto px-4 md:px-10 mb-24">
-    <h1 class="title">Top Destinations</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-      @foreach ($packages->take(3) as $package)
+    <h1 class="title">Top Package Tour</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-12">
+      @foreach ($packages->take(4) as $package)
         <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col group">
           <div class="relative">
             <img src="{{ asset('storage/'.$package->image_cover) }}" alt="Image of {{ $package->name }}" class="w-full h-56 object-cover" loading="lazy">
@@ -147,7 +143,7 @@
     </div>
     <div class="text-center mt-16">
       <a href="/tours" class="bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-cyan-600 transition-colors duration-300">
-        View All Destinations
+        View All Tour Package
       </a>
     </div>
   </div>
@@ -156,30 +152,36 @@
   {{-- -------------------------------------------------- --}}
   {{-- ------------------ TOUR PACKAGES ----------------- --}}
   {{-- -------------------------------------------------- --}}
-  <div class="container md:px-4 px-4 mx-auto mb-24">
-    <h1 class="title text-3xl md:text-4xl font-bold mb-10 text-center">Tour Packages</h1>
-    <div class="flex flex-wrap gap-y-6 justify-center">
-      @foreach ($packages as $package)
-        <div class="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/3 px-2 sm:px-3 md:px-4">
-          <div class="w-full h-96 md:h-96 rounded-xl shadow-lg overflow-hidden relative group bg-white">
-            <a href="/tour/{{ $package->slug }}" class="block w-full h-full">
-              <img src="{{ asset('storage/'.$package->image_cover) }}" alt="{{ $package->name }}" class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" loading="lazy">
-              <div class="w-full z-20 absolute bottom-0 bg-white bg-opacity-95 px-5 py-4">
-                <h4 class="text-gray-700 text-center font-subtitle font-bold text-xl">{{ $package->name }}</h4>
-                <p class="py-2 text-gray-600 text-sm md:text-base">
-                  Itinerary: {{ \Illuminate\Support\Str::limit($package->destinations->pluck('name')->implode(', '), 50, '...') }}
-                </p>
-                <div class="flex items-center justify-between py-3 border-t-2 mt-2">
-                  <span class="text-lg font-semibold">Start from Rp. {{ $package->price }}K</span>
-                  <a href="{{ config('app.whatsapp') }}?text=Hello,%20I'm%20interested%20in%20the%20{{ urlencode($package->name) }}%20tour%20package." class="text-center block py-2 px-4 bg-[#25d366] text-white font-semibold text-sm rounded-lg shadow-md hover:bg-[#128c7e]">
-                    <i class="icofont-brand-whatsapp"></i> Book Now
-                  </a>
-                </div>
+  <div class="container mx-auto px-4 md:px-10 mb-24">
+    <h1 class="title">Top Activities</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-12">
+      @foreach ($activities as $activity)
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col group">
+          <div class="relative">
+            <img src="{{ asset('storage/'.$activity->image_cover) }}" alt="Image of {{ $activity->name }}" class="w-full h-56 object-cover" loading="lazy">
+          </div>
+          <div class="p-5 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold font-subtitle mt-1 mb-3 text-gray-800">{{ $activity->name }}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed flex-grow">
+              {{ \Illuminate\Support\Str::limit($activity->description, 120, '...') }}
+            </p>
+            <div class="mt-6 pt-4 border-t flex justify-between items-center">
+              <div>
+                <span class="text-xs text-gray-500">Start From</span>
+                <p class="text-lg font-bold text-gray-900">Rp {{ number_format($activity->price * 1000) }}</p>
               </div>
-            </a>
+              <a href="/tour/{{ $activity->slug }}" class="px-4 py-2 border rounded-full text-sm font-semibold text-cyan-600 border-cyan-600 hover:bg-cyan-600 hover:text-white transition-all duration-300">
+                View More
+              </a>
+            </div>
           </div>
         </div>
       @endforeach
+    </div>
+    <div class="text-center mt-16">
+      <a href="/tours" class="bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-cyan-600 transition-colors duration-300">
+        View All Destinations
+      </a>
     </div>
   </div>
 
@@ -232,65 +234,59 @@
       Discover the experiences of our guests who have trusted us with their Bali holiday.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-      
-      {{-- Ulasan 1 --}}
-      <div class="relative">
-        <i class="icofont-quote-left icofont-5x absolute -top-6 -left-4 text-cyan-500 opacity-10"></i>
-        <p class="text-gray-700 text-lg leading-relaxed z-10">
-          "Our driver, Ketut, was more than just a driver; he was an amazing guide! He showed us hidden gems we would have never found on our own. The car was clean and comfortable. Highly recommended!"
-        </p>
-        <div class="flex items-center mt-6">
-          <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://i.pravatar.cc/150?u=sarah" alt="Photo of Sarah Jenkins">
-          <div>
-            <h4 class="font-semibold text-gray-900">Sarah Jenkins</h4>
-            <p class="text-sm text-gray-500">Visitor from Australia</p>
-          </div>
-        </div>
-      </div>
+    <div class="swiper swiper-testimonial">
+      <div class="swiper-wrapper">
+        @foreach ($reviews as $review)
+        <div class="swiper-slide">
+            {{-- Kita tambahkan `flex flex-col` agar footer (nama) selalu di bawah --}}
+            <div class="relative h-full flex flex-col"> 
+                <i class="icofont-quote-left icofont-5x absolute -top-6 -left-4 text-cyan-500 opacity-10"></i>
+                
+                {{-- Kontainer untuk teks testimoni --}}
+                <div class="testimonial-content flex-grow"> {{-- flex-grow agar teks mengisi ruang --}}
+                    
+                    {{-- Versi Pendek (Excerpt) - Tampil secara default --}}
+                    <p class="text-gray-700 text-base leading-relaxed z-10 excerpt">
+                        {!! \Illuminate\Support\Str::limit($review->description, 150, '...') !!}
+                        {{-- Tampilkan tombol "Read More" hanya jika teksnya memang panjang --}}
+                        @if (strlen($review->description) > 150)
+                            <button class="btn-read-more text-cyan-600 font-semibold hover:underline ml-1">Read More</button>
+                        @endif
+                    </p>
 
-      {{-- Ulasan 2 --}}
-      <div class="relative">
-        <i class="icofont-quote-left icofont-5x absolute -top-6 -left-4 text-cyan-500 opacity-10"></i>
-        <p class="text-gray-700 text-lg leading-relaxed z-10">
-          "The booking process was so simple via WhatsApp. We were able to customize our trip to see both Uluwatu and the rice terraces in one day. The team was very responsive and accommodating."
-        </p>
-        <div class="flex items-center mt-6">
-          <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://i.pravatar.cc/150?u=markus" alt="Photo of Markus Weber">
-          <div>
-            <h4 class="font-semibold text-gray-900">Markus Weber</h4>
-            <p class="text-sm text-gray-500">Visitor from Germany</p>
-          </div>
+                    {{-- Versi Panjang (Full Text) - Disembunyikan secara default --}}
+                    <p class="text-gray-700 text-base leading-relaxed z-10 full-text hidden">
+                        {!! $review->description !!}
+                        <button class="btn-read-less text-cyan-600 font-semibold hover:underline ml-1">Read Less</button>
+                    </p>
+                    
+                </div>
+                
+                {{-- Bagian Profil (Footer Kartu) --}}
+                <div class="flex items-center mt-6">
+                    <img class="w-12 h-12 rounded-full object-cover mr-4" src="{{ asset('storage/'.$review->image) }}" alt="Photo of {{ $review->name }}">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">{{ $review->name }}</h4>
+                        <p class="text-sm text-gray-500">Visitor from Australia</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        @endforeach
       </div>
-
-      {{-- Ulasan 3 --}}
-      <div class="relative">
-        <i class="icofont-quote-left icofont-5x absolute -top-6 -left-4 text-cyan-500 opacity-10"></i>
-        <p class="text-gray-700 text-lg leading-relaxed z-10">
-          "Traveling with two young kids can be stressful, but My Tour Bali made it a breeze. They were so patient and even had child seats ready for us. Our family had an unforgettable time. Thank you!"
-        </p>
-        <div class="flex items-center mt-6">
-          <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://i.pravatar.cc/150?u=priya" alt="Photo of Priya Patel">
-          <div>
-            <h4 class="font-semibold text-gray-900">Priya Patel</h4>
-            <p class="text-sm text-gray-500">Visitor from United Kingdom</p>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
+  <div class="text-center mt-10">
+          <a href="https://www.tripadvisor.com/UserReviewEdit-g297697-d25288635-My_Tour_Bali-Kuta_Kuta_District_Bali.html" class="button" target="_blank">Give your Review!</a> 
+        </div>
+    </div>
 </section>
-
 
 
   {{-- gallery --}}
   <section class="gallery" id="gallery">
     <div class="container mx-auto">
-      <div class="py-20 mx auto px-10 bg-dark-200">
+      <div class="py-20 mx auto px-0 md:px-10 bg-dark-200">
         <h1 class="title">Gallery</h1>
-        <h3 class="text-center text-xl font-medium">Photos</h3>
         <div class="flex flex-row gap-y-4 items-center justify-between flex-wrap">
           @foreach ($photos->shuffle()->take(10) as $photo)    
           <button class="basis-1/2 md:basis-1/3 lg:basis-1/5 px-2 md:px-4" id="showModal" onclick="return {{ $photo->id }}">
@@ -307,43 +303,6 @@
                     <img src="{{ asset('storage/'.$photo->image) }}" alt="{{ $photo->destination->name }}" class="relative w-full h-full object-cover" loading="lazy">
                     <button class="absolute top-2 right-4 text-4xl text-white md:text-black" id="close">&times;</button>
                   </div>
-                  {{-- <div class="w-full md:w-1/2 p-4 md:py-12 md:px-4">
-                    <h2 class="text-xl font-subtitle font-semibold mb-1 md:text-2xl md:mb-3 text-gray-700">{{ $photo->destination->name }}</h2>
-                    <p>{{ $photo->destination->description }}</p>
-                  </div> --}}
-                </div>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
-        <h3 class="text-center text-xl font-medium mt-10">Videos</h3>
-        <div class="flex flex-row gap-y-4 items-center justify-between flex-wrap">
-          @foreach ($videos->shuffle()->take(10) as $video)    
-          <button class="basis-1/2 md:basis-1/3 lg:basis-1/5 px-2 md:px-4" id="showModal" onclick="return {{ $video->id }}">
-            <div class="w-full md:h-48 h-40 rounded-xl shadow-lg relative overflow-hidden group bg-black">
-              <img src="{{ asset('storage/'.$video->thumbnail) }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-300 ease-in-out" loading="lazy">
-            </div>
-          </button>
-          <div class="relative z-30 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="modal">
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-            <div class="fixed inset-0 z-30 overflow-y-auto">
-              <div class="flex min-h-full items-center justify-center p-0 text-center sm:items-center sm:p-0">
-                <div class="relative transform rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 h-auto lg:h-96 flex flex-col md:flex-row mt-32">
-                  <div class="w-full pt-10">
-                    <iframe width="315" height="560"
-                      src="https://www.youtube.com/embed/{{ $video->url }}"
-                      title="YouTube video player" frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-                      gyroscope;
-                      web-share"
-                      allowfullscreen></iframe>
-                    <button class="absolute top-0 right-3 text-4xl text-black z-50" id="close">&times;</button>
-                  </div>
-                  {{-- <div class="w-full md:w-1/2 p-4 md:py-12 md:px-4">
-                    <h2 class="text-xl font-subtitle font-semibold mb-1 md:text-2xl md:mb-3 text-gray-700">{{ $video->destination->name }}</h2>
-                    <p>{{ $photo->destination->description }}</p>
-                  </div> --}}
                 </div>
               </div>
             </div>
@@ -355,62 +314,6 @@
   </section>
 
   {{-- modal gallery section --}}
-
-
-  {{-- testimonial --}}
-  <section class="testimonial" id="testimonial">
-    <div class="py-20 bg-gray-200">
-      <div class="container mx-auto px-4 overflow-hidden">
-        <h1 class="title">Reviews</h1>
-        <div class="flex swiper-container w-[80%] md:w-full mx-auto">
-          <div class="swiper-wrapper">
-            @foreach ($reviews as $review)
-            <div class="swiper-slide">
-              <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm scale-75 transition-transform duration-300 ease-in-out mx-auto" id="card">
-                <div class="flex items-center">
-                  <img src="{{ asset('storage/'. $review->image) }}" alt="" class="w-16 h-16 object-cover object-center rounded-full" loading="lazy">
-                  <div class="flex flex-col ml-3">
-                    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">{{ $review->name }}</h5>
-                    <ul class="flex">
-                      @for ($i = 1; $i <= $review->stars; $i++)
-                      <li>
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                          <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                        </svg>
-                      </li>
-                      @endfor
-                      @if ($review->stars != 5)
-                        @for ($i = 1; $i <= 5 - $review->stars; $i++)
-                        <li>
-                          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                            <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
-                          </svg>
-                        </li> 
-                        @endfor
-                      @endif
-                    </ul>
-                  </div>
-                </div>
-                <p class="text-gray-700 text-base mb-4 mt-3 text-center" id="excerpt">
-                  {{ $review->excerpt }}
-                  <button id="excerptButton" class="text-cyan-400">Read more..</button>
-                </p>
-                <p class="text-gray-700 text-base mb-4 mt-3 hidden" id="description">
-                  {{ $review->description }}
-                  <button id="descButton" class="text-cyan-400">Collapse</button>
-                </p>
-              </div>
-            </div>
-            @endforeach
-          </div>  
-          <div class="swiper-pagination"></div>
-        </div>
-        <div class="text-center mt-5">
-          <a href="https://www.tripadvisor.com/UserReviewEdit-g297697-d25288635-My_Tour_Bali-Kuta_Kuta_District_Bali.html" class="button" target="_blank">Give your Review!</a> 
-        </div>
-      </div>
-    </div>
-  </section>
 
   {{-- footer --}}
 
@@ -432,5 +335,73 @@
             disableOnInteraction: false,
         },
     });
+
+    var swiperTestimonial = new Swiper(".swiper-testimonial", {
+        // Opsi untuk membuat slider berputar
+        loop: true,
+        // Opsi untuk slide berganti otomatis
+        autoplay: {
+            delay: 5000, // ganti slide setiap 5 detik
+            disableOnInteraction: false,
+        },
+        // Jarak antar slide
+        spaceBetween: 30,
+        // Pagination (titik navigasi)
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        // Pengaturan responsif
+        breakpoints: {
+            // Ketika lebar layar 640px atau lebih
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            // Ketika lebar layar 768px atau lebih
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+            },
+            // Ketika lebar layar 1024px atau lebih
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+            },
+        },
+    });
+    
+    // Fungsi untuk handle Read More / Read Less pada testimoni
+        document.addEventListener('click', function(event) {
+            // Cek jika yang diklik adalah tombol "Read More"
+            if (event.target.classList.contains('btn-read-more')) {
+                // Cari parent terdekat dari konten testimoni
+                const contentWrapper = event.target.closest('.testimonial-content');
+                if (contentWrapper) {
+                    contentWrapper.querySelector('.excerpt').classList.add('hidden');
+                    contentWrapper.querySelector('.full-text').classList.remove('hidden');
+                    
+                    // Update Swiper untuk menyesuaikan tinggi slide jika berubah
+                    if (typeof swiperTestimonial !== 'undefined') {
+                        swiperTestimonial.update(); 
+                    }
+                }
+            }
+
+            // Cek jika yang diklik adalah tombol "Read Less"
+            if (event.target.classList.contains('btn-read-less')) {
+                // Cari parent terdekat dari konten testimoni
+                const contentWrapper = event.target.closest('.testimonial-content');
+                if (contentWrapper) {
+                    contentWrapper.querySelector('.excerpt').classList.remove('hidden');
+                    contentWrapper.querySelector('.full-text').classList.add('hidden');
+
+                    // Update Swiper lagi
+                    if (typeof swiperTestimonial !== 'undefined') {
+                        swiperTestimonial.update(); 
+                    }
+                }
+            }
+        });
 </script>
 @endsection

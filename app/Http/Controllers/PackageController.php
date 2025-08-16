@@ -74,7 +74,8 @@ class PackageController extends Controller
                         ->from('packages')
                         ->where('category_id', 2);
                 })->get(),
-                'packages' => Package::where('category_id', 1)->get(),
+                'packages' => Package::where('category_id', 1)->limit(4)->get(),
+                'activities' => Package::where('category_id', 2)->limit(4)->get(),
                 'reviews' => Review::all(),
                 'videos' => Video::all(),
             ],

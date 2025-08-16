@@ -69,3 +69,10 @@
     width: 300px;
     height: 300px;
 }
+
+.swiper-button-next {
+    @apply text-cyan-500 opacity-70;
+}
+.swiper-button-prev {
+    @apply text-cyan-500 opacity-70;
+}

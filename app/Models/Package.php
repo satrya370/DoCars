@@ -18,6 +18,12 @@ class Package extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'what_to_expect' => 'array',   // penting!
+        'is_top_package' => 'boolean',
+        'price'          => 'integer',
+    ];
+
     public function destinations()
     {
         return $this->hasMany(Destination::class);

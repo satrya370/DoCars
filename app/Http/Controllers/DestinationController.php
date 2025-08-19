@@ -18,7 +18,19 @@ class DestinationController extends Controller
      */
     public function index(Package $package)
     {
-        $destinations = $package->destinations()->orderBy('order', 'asc')->get();
+        if ($package->category_id == 2) {
+            // Long Trip
+            $destinations = Destination::where('package_id', $package->id)
+                ->orderBy('day')
+                ->orderBy('start_time')
+                ->get()
+                ->groupBy('day');
+        } else {
+            // Full Day / Activity
+            $destinations = Destination::where('package_id', $package->id)
+                ->orderBy('start_time')
+                ->get();
+        }
         return view('destination.index', compact('package', 'destinations'));
     }
 
@@ -43,10 +55,12 @@ class DestinationController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'description' => 'required',
+            'start_time' => 'required|date_format:H:i',
         ]);
 
         $validated = $validator->validated();
         $validated['package_id'] = $request->packageID;
+        $validated['day'] = $request->day ?? 1;
 
         $destination = Destination::create($validated);
 
@@ -69,9 +83,7 @@ class DestinationController extends Controller
      * @param  \App\Models\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function show(Destination $destination)
-    {
-    }
+    public function show(Destination $destination) {}
 
     /**
      * Show the form for editing the specified resource.

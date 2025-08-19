@@ -27,9 +27,12 @@ class DatabaseSeeder extends Seeder
             'created_at' => now()
         ]);
 
-
         Category::create([
             'name' => 'full day',
+            'created_at' => now()
+        ]);
+        Category::create([
+            'name' => 'long trip',
             'created_at' => now()
         ]);
 
@@ -37,6 +40,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'activity',
             'created_at' => now()
         ]);
+
         Category::create([
             'name' => 'half day',
             'created_at' => now()

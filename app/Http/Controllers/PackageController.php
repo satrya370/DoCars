@@ -103,8 +103,87 @@ class PackageController extends Controller
         JsonLdMulti::setDescription($package->description);
         JsonLdMulti::setType('WebPage');
         JsonLdMulti::addImage(asset('storage/' . $package->image));
-        $destinations = $package->destinations()->get();
-        return view('web.tour.show', compact('package', 'destinations'));
+
+        if ($package->category_id == 2) {
+            $destinations = Destination::where('package_id', $package->id)
+                ->orderBy('day')
+                ->orderBy('start_time')
+                ->get();
+
+            $byDay = $destinations->groupBy('day');
+            $firstDay = $byDay->keys()->first() ?? 1;
+        } else {
+            $destinations = Destination::where('package_id', $package->id)
+                ->orderBy('start_time')
+                ->get();
+
+            $byDay = collect();
+            $firstDay = null;
+        }
+
+        // Kumpulkan slides (cover + foto-foto destinasi)
+        $slides = collect();
+
+        if (!empty($package->image_cover)) {
+            $slides->push([
+                'src' => asset('storage/' . $package->image_cover),
+                'alt' => 'Cover ' . $package->name,
+            ]);
+        }
+
+        foreach ($destinations as $destination) {
+            if (!empty($destination->photo)) {
+                foreach ($destination->photo as $photo) {
+                    if (!empty($photo->image)) {
+                        $slides->push([
+                            'src' => asset('storage/' . $photo->image),
+                            'alt' => $destination->name . ' - ' . $package->name,
+                        ]);
+                    }
+                }
+            }
+        }
+
+        // Opsional: hilangkan duplikat berdasarkan 'src'
+        $slides = $slides->unique('src')->values();
+
+        // You Might Also Like
+        $targetCount = 8;
+
+        // 1) Prioritaskan kategori yang sama
+        $primary = Package::query()
+            ->where('id', '!=', $package->id)
+            ->where('category_id', $package->category_id)
+            ->inRandomOrder()
+            ->take($targetCount)
+            ->get();
+
+        // 2) Jika kurang dari 8, lengkapi dari kategori lain
+        $remaining = $targetCount - $primary->count();
+
+        if ($remaining > 0) {
+            $fallback = \App\Models\Package::query()
+                ->where('id', '!=', $package->id)
+                ->where('category_id', '!=', $package->category_id)
+                ->whereNotIn('id', $primary->pluck('id'))
+                ->inRandomOrder()
+                ->take($remaining)
+                ->get();
+        } else {
+            $fallback = collect();
+        }
+
+        $relatedPackages = $primary->concat($fallback)->values();
+
+
+        return view('web.tour.show', compact(
+            'package',
+            'destinations',
+            'byDay',
+            'firstDay',
+            'slides',
+            'relatedPackages'
+        ));
     }
 
     /**

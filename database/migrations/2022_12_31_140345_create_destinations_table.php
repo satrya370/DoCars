@@ -15,10 +15,19 @@ return new class extends Migration
     {
         Schema::create('destinations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('package_id');
             $table->string('name');
             $table->text('description');
-            $table->foreignId('package_id');
+            $table->time('start_time')->default('08:00');
+            $table->smallInteger('day')->default('1');
             $table->timestamps();
+
+            $table->foreign('package_id')
+                ->references('id')->on('packages')
+                ->onDelete('cascade');
+
+            $table->index(['package_id', 'day']);
+            $table->index(['package_id', 'day', 'start_time']);
         });
     }
 

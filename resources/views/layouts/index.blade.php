@@ -75,5 +75,6 @@
   <script src="/js/script.js"></script>
 
   @yield('scripts')
+  @stack('scripts')
 </body>
 </html>

@@ -7,7 +7,7 @@
     </div>
     @endif
     <div class="flex flex-row justify-between my-10">
-      <h1 class="text-white text-xl md:text-3xl font-semibold">{{ $package->name }} <span class="inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-baseline bg-emerald-600 text-white rounded">{{ $package->category->name }}</span></h1>
+      <h1 class="text-black text-xl md:text-3xl font-semibold">{{ $package->name }} <span class="inline-block py-1.5 px-2.5 leading-none text-center bltext-blackspace-nowrap align-baseline bg-emerald-600 text-white rounded">{{ $package->category->name }}</span></h1>
       
       <a href="{{ route('destination.create', $package->id) }}" class="button">Add Destination</a>
       
@@ -19,41 +19,88 @@
             <table class="min-w-full">
               <thead class="border-b">
                 <tr>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                  <th scope="col" class=" font-medium text-black px-6 py-4 text-left">
                     #
                   </th>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                  <th scope="col" class=" font-medium text-black px-6 py-4 text-left">
+                    Start Time
+                  </th>
+                  <th scope="col" class=" font-medium text-black px-6 py-4 text-left">
                     Name
                   </th>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left hidden md:block">
+                  <th scope="col" class=" font-medium text-black px-6 py-4 text-left hidden md:block">
                     Description
                   </th>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                  <th scope="col" class=" font-medium text-black px-6 py-4 text-left">
                     Action
                   </th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($destinations as $destination)
-                <tr class="border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $loop->iteration }}</td>
-                  <td class="text-sm text-white font-light px-6 py-4 whitespace-nowrap">
-                    {{ $destination->name }}
-                  </td>
-                  <td class="text-sm text-white font-light px-6 py-4 hidden md:block">
-                    {{ $destination->description }}
-                  </td>
-                  <td class="text-sm text-white font-light px-6 py-4">
-                    <a href="{{ route('destination.edit', $destination->id) }}" class="button">Edit</a>
-                    <form action="{{ route('destination.destroy', $destination->id) }}" method="post">
-                      @csrf
-                      @method('delete')
-                      <button type="submit" class="inline-block px-6 py-4 bg-red-600 text-white font-medium leading-tight  rounded-lg shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out" onclick="return confirm('Are you sure?')">Delete</button> 
-                    </form>
-                  </td>
-                  </td>
-                </tr>
-                @endforeach
+                @if ($package->category_id == 2)
+                  {{-- Group by day --}}
+                @foreach ($destinations as $day => $items)
+                    <tr class="border-b bg-gray-100">
+                        <td colspan="5" class="text-center font-semibold text-xl py-3">
+                            Day {{ $day }}
+                        </td>
+                    </tr>
+
+                    @foreach ($items as $destination)
+                        <tr class="border-b">
+                            <td class="px-6 pb-4 font-medium text-black">{{ $loop->iteration }}</td>
+                            <td class="text-black px-6 py-4">
+                                {{ $destination->start_time }}
+                            </td>
+                            <td class="text-black px-6 py-4">
+                                {{ $destination->name }}
+                            </td>
+                            <td class="text-black px-6 py-4">
+                                {{ $destination->description }}
+                            </td>
+                            <td class="text-black px-6 py-4">
+                                <a href="{{ route('destination.edit', $destination->id) }}" class="button">Edit</a>
+                                <form action="{{ route('destination.destroy', $destination->id) }}" method="post" class="mt-1">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit"
+                                        class="inline-block px-6 py-4 bg-red-600 text-white font-medium rounded-lg shadow-md hover:bg-red-700"
+                                        onclick="return confirm('Are you sure?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                  @endforeach
+                @else
+                  @foreach ($destinations as $destination)
+                      <tr class="border-b">
+                          <td class="px-6 pb-4 font-medium text-black">{{ $loop->iteration }}</td>
+                          <td class="text-black px-6 py-4">
+                              {{ $destination->start_time }}
+                          </td>
+                          <td class="text-black px-6 py-4">
+                              {{ $destination->name }}
+                          </td>
+                          <td class="text-black px-6 py-4">
+                              {{ $destination->description }}
+                          </td>
+                          <td class="text-black px-6 py-4">
+                              <a href="{{ route('destination.edit', $destination->id) }}" class="button">Edit</a>
+                              <form action="{{ route('destination.destroy', $destination->id) }}" method="post" class="mt-1">
+                                  @csrf
+                                  @method('delete')
+                                  <button type="submit"
+                                      class="inline-block px-6 py-4 bg-red-600 text-white font-medium rounded-lg shadow-md hover:bg-red-700"
+                                      onclick="return confirm('Are you sure?')">
+                                      Delete
+                                  </button>
+                              </form>
+                          </td>
+                      </tr>
+                  @endforeach
+                @endif
               </tbody>
             </table>
           </div>

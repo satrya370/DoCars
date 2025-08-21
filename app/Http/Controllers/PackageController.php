@@ -25,10 +25,6 @@ class PackageController extends Controller
     public function index()
     {
 
-        $destinations = Destination::with(['package' => function ($query) {
-            $query->where('category_id', 1);
-        }])->get();
-
         $description = "Welcome to My Tour Bali, your premier travel and tourism agency located in the beautiful island of Bali. We offer a wide range of services, including airport transfers, tour packages, and car rentals. Our tour packages are designed to showcase the best of what Bali has to offer, from its stunning beaches and vibrant culture to its rich history and natural beauty. Our team of professional and friendly drivers will ensure that you have a safe and comfortable journey while exploring Bali. We invite you to browse our website and learn more about the services we offer. If you have any questions or would like to book a tour, please dont hesitate to contact us.";
 
         SEOTools::setTitle('My Tour Bali | Travel Bali | Tour & Travel Bali');
@@ -63,19 +59,16 @@ class PackageController extends Controller
         return view(
             'web.homepage',
             [
-                'photos' => Photos::all(),
-                'destinations' => Destination::where(function ($query) {
-                    $query->where('name', 'not like', '%lunch%')
-                        ->where('name', 'not like', '%dinner%')
-                        ->where('name', 'not like', '%coffee%')
-                        ->where('name', 'not like', '%breakfast%');
-                })->whereNotIn('package_id', function ($q) {
-                    $q->select('id')
-                        ->from('packages')
-                        ->where('category_id', 2);
-                })->get(),
-                'packages' => Package::where('category_id', 1)->limit(4)->get(),
-                'activities' => Package::where('category_id', 2)->limit(4)->get(),
+                'photos' => Photos::inRandomOrder()->limit(8)->get(),
+                'packages' => Package::where('category_id', '!=', 3)
+                    ->where('is_top_package', 1)
+                    ->limit(4)
+                    ->get(),
+
+                'activities' => Package::where('category_id', 3)
+                    ->where('is_top_package', 1)
+                    ->limit(4)
+                    ->get(),
                 'reviews' => Review::all(),
                 'videos' => Video::all(),
             ],
@@ -117,8 +110,87 @@ class PackageController extends Controller
         JsonLdMulti::setDescription($package->description);
         JsonLdMulti::setType('WebPage');
         JsonLdMulti::addImage(asset('storage/' . $package->image));
-        $destinations = $package->destinations()->orderBy('order', 'asc')->get();
-        return view('web.tour.show', compact('package', 'destinations'));
+
+        if ($package->category_id == 2) {
+            $destinations = Destination::where('package_id', $package->id)
+                ->orderBy('day')
+                ->orderBy('start_time')
+                ->get();
+
+            $byDay = $destinations->groupBy('day');
+            $firstDay = $byDay->keys()->first() ?? 1;
+        } else {
+            $destinations = Destination::where('package_id', $package->id)
+                ->orderBy('start_time')
+                ->get();
+
+            $byDay = collect();
+            $firstDay = null;
+        }
+
+        // Kumpulkan slides (cover + foto-foto destinasi)
+        $slides = collect();
+
+        if (!empty($package->image_cover)) {
+            $slides->push([
+                'src' => asset('storage/' . $package->image_cover),
+                'alt' => 'Cover ' . $package->name,
+            ]);
+        }
+
+        foreach ($destinations as $destination) {
+            if (!empty($destination->photo)) {
+                foreach ($destination->photo as $photo) {
+                    if (!empty($photo->image)) {
+                        $slides->push([
+                            'src' => asset('storage/' . $photo->image),
+                            'alt' => $destination->name . ' - ' . $package->name,
+                        ]);
+                    }
+                }
+            }
+        }
+
+        // Opsional: hilangkan duplikat berdasarkan 'src'
+        $slides = $slides->unique('src')->values();
+
+        // You Might Also Like
+        $targetCount = 8;
+
+        // 1) Prioritaskan kategori yang sama
+        $primary = Package::query()
+            ->where('id', '!=', $package->id)
+            ->where('category_id', $package->category_id)
+            ->inRandomOrder()
+            ->take($targetCount)
+            ->get();
+
+        // 2) Jika kurang dari 8, lengkapi dari kategori lain
+        $remaining = $targetCount - $primary->count();
+
+        if ($remaining > 0) {
+            $fallback = \App\Models\Package::query()
+                ->where('id', '!=', $package->id)
+                ->where('category_id', '!=', $package->category_id)
+                ->whereNotIn('id', $primary->pluck('id'))
+                ->inRandomOrder()
+                ->take($remaining)
+                ->get();
+        } else {
+            $fallback = collect();
+        }
+
+        $relatedPackages = $primary->concat($fallback)->values();
+
+
+        return view('web.tour.show', compact(
+            'package',
+            'destinations',
+            'byDay',
+            'firstDay',
+            'slides',
+            'relatedPackages'
+        ));
     }
 
     /**

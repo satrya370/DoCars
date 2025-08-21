@@ -44,29 +44,38 @@ class PackageDashboard extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:packages|max:255',
-            'slug' => 'required|unique:packages',
-            'image_cover' => 'image|file|max:25000',
-            'image' => 'image|file|max:25000',
-            'description' => 'required',
-            'category_id' => 'required'
+            'name'               => 'required|string|max:255|unique:packages,name',
+            'category_id'        => 'required|exists:categories,id',
+            'description'        => 'required|string',
+            'duration'           => 'required|string|max:255',
+            'price'              => 'required|integer|min:0',
+            'image_cover'        => 'required|image|file|max:25000',
+            'whats_included'     => 'required|string',
+            'whats_not_included' => 'nullable|string',
+            'need_to_know'       => 'nullable|string',
+            'what_to_bring'      => 'nullable|string',
+            'what_to_expect'     => 'nullable|array',
+            'what_to_expect.*'   => 'string|max:250',
+            'is_top_package'     => 'nullable|boolean',
         ]);
+
         $validated = $validator->validated();
 
-        $validated['slug'] = Str::slug($request->name);
+        $validated['slug'] = Str::slug($validated['name']);
+
+        $validated['is_top_package'] = $request->boolean('is_top_package');
+
+        $validated['what_to_expect'] = $request->input('what_to_expect', []);
 
         if ($request->file('image_cover')) {
             $validated['image_cover'] = $request->file('image_cover')->store('package-image');
         }
 
-        if ($request->file('image')) {
-            $validated['image'] = $request->file('image')->store('package-image');
-        }
-
         $package = Package::create($validated);
 
-
-        return redirect()->route('destination.index', $package->id)->with('status', "Package Successfully Created");
+        return redirect()
+            ->route('destination.index', $package->id)
+            ->with('status', 'Package Successfully Created');
     }
 
     /**
@@ -143,8 +152,8 @@ class PackageDashboard extends Controller
      */
     public function destroy(Package $package)
     {
-        if ($package->image || $package->image_cover) {
-            Storage::delete([$package->image, $package->image_cover]);
+        if ($package->image_cover) {
+            Storage::delete($package->image_cover);
         }
 
         Package::destroy($package->id);

@@ -4,7 +4,7 @@
 @include('components.navbar-dark')
     
 <div class="container mx-auto md:px-10 px-5 mt-32">
-  <h1 class="text-center font-subtitle font-semibold text-4xl">THE TOP 10 Full Day Tours</h1>
+  <h1 class="text-center font-subtitle font-semibold text-4xl">Tour Packages</h1>
   <div class="py-20 w-full">
       <div class="flex flex-col md:flex-row gap-y-6 items-center justify-center md:justify-start flex-wrap">
       @foreach ($packages->shuffle()->take(10) as $package)

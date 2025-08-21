@@ -43,10 +43,10 @@ Route::get('/airport', function () {
         'title' => 'Airport'
     ]);
 });
-Route::get('/top-destinations', function () {
+Route::get('/tour-pacakges', function () {
     return view('web.top-destination', [
         'title' => 'THE TOP 10 Full Day Tours | My Tour Bali',
-        'packages' => Package::where('category_id', 1)->get()
+        'packages' => Package::where('category_id', '!=', 3)->get()
     ]);
 });
 

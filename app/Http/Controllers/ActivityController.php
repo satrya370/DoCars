@@ -36,7 +36,7 @@ class ActivityController extends Controller
         JsonLdMulti::setDescription($description);
         JsonLdMulti::setType('WebPage');
         JsonLdMulti::addImage('/img/logo-image.png');
-        $activities = Package::where('category_id', 2)->get();
+        $activities = Package::where('category_id', 3)->get();
         return view('web.activity.index', compact('activities'));
     }
 

@@ -27,9 +27,9 @@
         </div>
 
     </div>
-    
+{{--     
     <div class="swiper-button-next mr-3 md:mr-10"></div>
-    <div class="swiper-button-prev ml-3 md:ml-10"></div>
+    <div class="swiper-button-prev ml-3 md:ml-10"></div> --}}
 </div>
 
   {{-- about --}}
@@ -170,7 +170,7 @@
                 <span class="text-xs text-gray-500">Start From</span>
                 <p class="text-lg font-bold text-gray-900">Rp {{ number_format($activity->price * 1000) }}</p>
               </div>
-              <a href="/activity/{{ $activity->slug }}" class="px-4 py-2 border rounded-full text-sm font-semibold text-cyan-600 border-cyan-600 hover:bg-cyan-600 hover:text-white transition-all duration-300">
+              <a href="/tour/{{ $activity->slug }}" class="px-4 py-2 border rounded-full text-sm font-semibold text-cyan-600 border-cyan-600 hover:bg-cyan-600 hover:text-white transition-all duration-300">
                 View More
               </a>
             </div>
@@ -180,7 +180,7 @@
     </div>
     <div class="text-center mt-16">
       <a href="/activities" class="bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-cyan-600 transition-colors duration-300">
-        View All Destinations
+        View All Activities
       </a>
     </div>
   </div>

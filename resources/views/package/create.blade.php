@@ -96,11 +96,11 @@
         <textarea name="whats_not_included" id="" class="w-full border-0 rounded-lg" rows="2">{{ old('whats_not_included') }}</textarea>
         <x-input-error :messages="$errors->get('whats_not_included')" class="mt-2" />
       </div>
-      <x-input-label for="need_to_know" :value="__('Need to Know (optional)')" class="mt-3" />
+      {{-- <x-input-label for="need_to_know" :value="__('Need to Know (optional)')" class="mt-3" />
       <div class="max-w-36 bg-white trix-content rounded">
         <textarea name="need_to_know" id="" class="w-full border-0 rounded-lg" rows="2">{{ old('need_to_know') }}</textarea>
         <x-input-error :messages="$errors->get('need_to_know')" class="mt-2" />
-      </div>
+      </div> --}}
       <x-input-label for="what_to_bring" :value="__('What to Bring (optional)')" class="mt-3" />
       <div class="max-w-36 bg-white trix-content rounded">
         <textarea name="what_to_bring" id="" class="w-full border-0 rounded-lg" rows="2">{{ old('what_to_bring') }}</textarea>

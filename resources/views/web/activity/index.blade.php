@@ -116,7 +116,7 @@
                                 <span class="text-xs text-gray-500">from</span>
                                 <p class="text-lg font-bold text-gray-900">Rp {{ number_format($activity->price,0,',','.') }}</p>
                             </div>
-                            <a href="/activity/{{ $activity->slug }}" class="px-4 py-2 border rounded-full text-sm font-semibold text-cyan-600 border-cyan-600 hover:bg-cyan-600 hover:text-white transition-all">
+                            <a href="/tour/{{ $activity->slug }}" class="px-4 py-2 border rounded-full text-sm font-semibold text-cyan-600 border-cyan-600 hover:bg-cyan-600 hover:text-white transition-all">
                                 View More
                             </a>
                         </div>

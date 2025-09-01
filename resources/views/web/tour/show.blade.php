@@ -45,9 +45,9 @@
                   </div>
                 @endforeach
               </div>
-            <div class="swiper-button-next"></div>
+            {{-- <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination"></div> --}}
           </div>
 
           <div thumbsSlider="" class="swiper swiper-package mt-3">
@@ -165,12 +165,11 @@
     <div class="space-y-12 mt-12">  
       <div class="pt-8 border-t">
         <div class="divide-y">
-          <div class="py-5" x-data="{ open: false }">
-            <div @click="open = !open" class="flex justify-between items-center cursor-pointer">
+          <div class="py-5">
+            <div class="flex justify-between items-center cursor-pointer">
               <h2 class="text-[24px] font-bold font-subtitle">What's Included</h2>
-              <i class="icofont-plus text-2xl text-gray-500 transition-transform duration-300" :class="{ 'rotate-45': open }"></i>
             </div>
-            <div x-show="open" x-transition class="mt-4 text-[20px] text-gray-700 leading-relaxed">
+            <div class="mt-4 text-[20px] text-gray-700 leading-relaxed">
               <p class="mb-2"><strong>Included:</strong> {{ $package->whats_included }} </p>
               @if ($package->whats_not_included)
               <p><strong>Not Included:</strong> {{ $package->whats_not_included }}</p>
@@ -178,23 +177,21 @@
             </div>
           </div>
           @if ($package->need_to_know)
-          <div class="py-5" x-data="{ open: false }">
-            <div @click="open = !open" class="flex justify-between items-center cursor-pointer">
+          <div class="py-5">
+            <div class="flex justify-between items-center cursor-pointer">
               <h2 class="text-[24px] font-bold font-subtitle">Need to Know</h2>
-              <i class="icofont-plus text-2xl text-gray-500 transition-transform duration-300" :class="{ 'rotate-45': open }"></i>
             </div>
-            <div x-show="open" x-transition class="mt-4 text-[20px] text-gray-700 leading-relaxed">
-              <p>{{ $package->need_to_know }}</p>
+            <div class="mt-4 text-[20px] text-gray-700 leading-relaxed">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo nam aut quam eligendi, quos odio sequi dolores recusandae sunt minima.</p>
             </div>
           </div>
           @endif
           @if ($package->what_to_bring)
-          <div class="py-5" x-data="{ open: false }">
-            <div @click="open = !open" class="flex justify-between items-center cursor-pointer">
+          <div class="py-5">
+            <div class="flex justify-between items-center cursor-pointer">
               <h2 class="text-[24px] font-bold font-subtitle">What to Bring</h2>
-              <i class="icofont-plus text-2xl text-gray-500 transition-transform duration-300" :class="{ 'rotate-45': open }"></i>
             </div>
-            <div x-show="open" x-transition class="mt-4 text-[20px] text-gray-700 leading-relaxed">
+            <div class="mt-4 text-[20px] text-gray-700 leading-relaxed">
               <p>{{ $package->what_to_bring }}</p>
             </div>
           </div>
@@ -345,7 +342,7 @@
         @endforeach
       </div>
 
-      <div class="swiper-pagination mt-8 relative"></div>
+      {{-- <div class="swiper-pagination mt-8 relative"></div> --}}
     </div>
   </div>
 </section>
@@ -367,6 +364,7 @@
       0:   { slidesPerView: 3, spaceBetween: 8 },
       640: { slidesPerView: 5, spaceBetween: 10 },
     },
+    
   });
 
   var swiperMain = new Swiper(".swiper-package2", {
@@ -378,6 +376,10 @@
     },
     pagination: { el: ".swiper-pagination", clickable: true },
     thumbs: { swiper: swiperThumbs },
+    autoplay: {
+        delay: 4000, // Pindah slide otomatis setiap 4 detik
+        disableOnInteraction: false,
+    },
   });
 
     var swiperRelated = new Swiper('.related-tours-swiper', {
@@ -389,6 +391,10 @@
       640:  { slidesPerView: 2 },
       1024: { slidesPerView: 3 },
       1280: { slidesPerView: 4 },
+    },
+    autoplay: {
+        delay: 4000, // Pindah slide otomatis setiap 4 detik
+        disableOnInteraction: false,
     },
   });
 </script>

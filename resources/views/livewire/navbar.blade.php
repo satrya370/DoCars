@@ -2,8 +2,8 @@
     <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 top-0 shadow-lg">
         <div class="container mx-auto px-5 md:px-20 flex flex-wrap items-center justify-between mt-0 py-4 md:py-2" id="container">
           <div class="flex items-center">
-            <a href="/" class="text-emerald-700 text-3xl tracking-tight font-title" id="title">
-              My Tour Bali
+            <a href="/" class="text-cyan-700 text-3xl tracking-tight font-title" id="title">
+              DoCars
             </a>
           </div>
           <button id="button-search"><i class="icofont-search-1 text-2xl text-emerald-600 block md:hidden"></i></button>

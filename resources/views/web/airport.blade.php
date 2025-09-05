@@ -3,7 +3,7 @@
 @section('container')
 
 {{-- Menggunakan navbar yang sama untuk konsistensi --}}
-@include('components.navbar')
+@include('components.navbar-dark')
 
 {{-- 1. Revised Hero Section --}}
 
@@ -24,13 +24,11 @@
     {{-- 2. Intro Section with CTA --}}
     <section class="intro-section">
         <div class="flex flex-col lg:flex-row items-center gap-12">
-            <div class="w-full lg:w-1/3">
-                <img src="Bali2.png" class="rounded-xl shadow-lg w-full h-full object-cover">
-            </div>
+            
             <div class="w-full lg:w-2/3">
                 <h2 class="text-3xl font-bold font-subtitle text-gray-800">Your Trusted Bali Airport Transfer Partner</h2>
                 <p class="mt-4 text-xl text-gray-600 leading-relaxed">
-                    Arrive in Bali smoothly and stress-free with our dedicated airport transfer service. We prioritize your comfort and punctuality, ensuring a seamless transition from the airport to your accommodation.
+                    With over 20 years of experience, i guarantee a seamless and stress-free arrival in Bali. Me dedicated service operates 24/7, ensuring a reliable pickup no matter when your flight lands day or night. I offer competitive, fixed-rate pricing and provide comfortable transportation to nearly every corner of the island. 
                 </p>
                 <div class="mt-8">
                     <a href="{{ config('app.whatsapp') }}" class="inline-block bg-emerald-500 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-emerald-600 transition-colors">
@@ -38,59 +36,12 @@
                     </a>
                 </div>
             </div>
+            <div class="w-full lg:w-1/3">
+                <img src="Bali2.png" class="rounded-xl shadow-lg w-full h-full object-cover">
+            </div>
         </div>
     </section>
 
-    {{-- 3. Available At Section (Slider) --}}
-    <section class="available-at-section mt-20 pt-16 border-t">
-        <h2 class="title">Available At</h2>
-        <div class="swiper-container available-locations-swiper mt-10 overflow-hidden">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="Bali2.png" alt="Ubud" class="w-full h-48 object-cover">
-                        <div class="p-4 text-center">
-                            <h4 class="font-semibold text-lg text-gray-800">Ubud</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="Bali2.png" alt="Kuta" class="w-full h-48 object-cover">
-                        <div class="p-4 text-center">
-                            <h4 class="font-semibold text-lg text-gray-800">Kuta</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="Bali2.png" alt="Seminyak" class="w-full h-48 object-cover">
-                        <div class="p-4 text-center">
-                            <h4 class="font-semibold text-lg text-gray-800">Seminyak</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="Bali2.png" alt="Nusa Dua" class="w-full h-48 object-cover">
-                        <div class="p-4 text-center">
-                            <h4 class="font-semibold text-lg text-gray-800">Nusa Dua</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="Bali2.png" alt="Lovina" class="w-full h-48 object-cover">
-                        <div class="p-4 text-center">
-                            <h4 class="font-semibold text-lg text-gray-800">Lovina</h4>
-                        </div>
-                    </div>
-                </div>
-                {{-- Add more destinations as needed --}}
-            </div>
-            <div class="swiper-pagination mt-4 relative"></div>
-        </div>
-    </section>
 
     {{-- 4. Why Choose Us Section --}}
     <section class="why-choose-us-section mt-20 pt-16 border-t">
@@ -122,12 +73,61 @@
                 <p class="text-gray-600">Simple booking process via WhatsApp.</p>
             </div>
              <div class="bg-white p-6 rounded-lg border shadow-sm">
-                <i class="icofont-headphone-alt-1 text-3xl text-cyan-600"></i>
-                <h3 class="font-semibold text-xl my-2">24/7 Support</h3>
-                <p class="text-gray-600">Dedicated support whenever you need it.</p>
+                <i class="icofont-wall-clock text-3xl text-cyan-600"></i>
+                <h3 class="font-semibold text-xl my-2">24/7 Availability</h3>
+                <p class="text-gray-600">Early morning flight or late-night arrival? We operate around the clock to match your schedule.</p>
             </div>
         </div>
     </section>
+
+    {{-- 3. Available At Section (Desain 2: Immersive Overlay) --}}
+    <section class="available-at-section mt-20 pt-16 border-t">
+        <h2 class="title">Available At</h2>
+        <div class="swiper-container available-locations-swiper mt-10 overflow-hidden">
+            <div class="swiper-wrapper py-4">
+
+                <div class="swiper-slide">
+                    <div class="relative group rounded-lg overflow-hidden shadow-lg cursor-pointer h-64">
+                        <img src="Bali2.png" alt="Ubud" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h4 class="absolute bottom-0 left-0 p-4 font-bold text-white text-xl">Ubud</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="relative group rounded-lg overflow-hidden shadow-lg cursor-pointer h-64">
+                        <img src="Bali2.png" alt="Kuta" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h4 class="absolute bottom-0 left-0 p-4 font-bold text-white text-xl">Kuta</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="relative group rounded-lg overflow-hidden shadow-lg cursor-pointer h-64">
+                        <img src="Bali2.png" alt="Seminyak" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h4 class="absolute bottom-0 left-0 p-4 font-bold text-white text-xl">Seminyak</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="relative group rounded-lg overflow-hidden shadow-lg cursor-pointer h-64">
+                        <img src="Bali2.png" alt="Nusa Dua" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h4 class="absolute bottom-0 left-0 p-4 font-bold text-white text-xl">Nusa Dua</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="relative group rounded-lg overflow-hidden shadow-lg cursor-pointer h-64">
+                        <img src="Bali2.png" alt="Lovina" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h4 class="absolute bottom-0 left-0 p-4 font-bold text-white text-xl">Lovina</h4>
+                    </div>
+                </div>
+                {{-- Add more destinations as needed --}}
+
+            </div>
+        </div>
+    </section>
+
+    
 
     {{-- 5. Price List Section (New Design) --}}
     <section class="price-list-section mt-20 pt-16 border-t">

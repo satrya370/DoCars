@@ -4,10 +4,15 @@
 @include('components.navbar-dark')
 
 {{-- ======================= HERO SECTION ======================= --}}
-<section class="hero-section relative h-[50vh] flex items-center justify-center text-white">
-    <div class="absolute w-full h-full bg-black/40 z-10"></div>
-    <h1 class="text-5xl font-extrabold font-title z-20">Guest Activities</h1>
-    <img src="https://source.unsplash.com/1600x900/?bali,adventure" class="w-full h-full object-cover" alt="Adventure in Bali">
+<section class="hero-section relative py-32 md:py-48 lg:py-64 bg-gray-900 overflow-hidden">
+{{-- Decorative Shape (similar to the example) --}}
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gray-900 rounded-tl-[80px] md:rounded-tl-[120px] lg:rounded-tl-[200px]"></div>
+<div class="container mx-auto px-4 relative z-20 text-center">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-title text-white mb-4">ACTIVITIES</h1>
+<p class="text-lg md:text-xl text-white opacity-80">Unforgettable experiences waiting for you across Bali.</p> {{-- Deskripsi juga saya perbarui agar relevan --}}
+</div>
+{{-- Background Image (you can still use an image here if you prefer) --}}
+<img src="img/atv.jpg" class="absolute top-0 left-0 w-full h-full object-cover opacity-20" alt="Activities background"> {{-- Alt text juga saya perbarui --}}
 </section>
 
 {{-- ======================= PAGE WRAPPER (2 Columns) ======================= --}}
@@ -18,7 +23,7 @@
         <aside class="lg:col-span-3">
             <form method="GET" action="{{ url()->current() }}" class="space-y-8">
                 
-                <section class="bg-white rounded-xl shadow-md overflow-hidden border">
+                <!-- <section class="bg-white rounded-xl shadow-md overflow-hidden border">
                     <div class="bg-cyan-700 text-white p-4">
                         <h3 class="font-semibold text-lg">Tour Recommendations</h3>
                     </div>
@@ -65,7 +70,7 @@
                         </div>
                         <button type="submit" class="mt-5 w-full bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition">Apply Filters</button>
                     </div>
-                </section>
+                </section> -->
 
                 <section class="bg-white rounded-xl shadow-md overflow-hidden border">
                     <div class="bg-cyan-700 text-white p-4">
@@ -142,35 +147,35 @@
 
 {{-- ======================= CTA SECTION ======================= --}}
 <section class="relative bg-gray-800 py-20 text-white">
-    <img src="https://source.unsplash.com/1600x900/?bali,coast" class="absolute inset-0 w-full h-full object-cover opacity-20" alt="Bali coast">
+    <img src="img/cta.jpg" class="absolute inset-0 w-full h-full object-cover opacity-20" alt="Bali coast">
     <div class="container mx-auto px-4 relative z-10 text-center">
-        <h2 class="text-3xl font-bold font-subtitle">Tidak Menemukan Pilihan yang Pas?</h2>
-        <p class="mt-2 mb-8 max-w-2xl mx-auto">Konsultasikan dengan kami sekarang juga untuk menemukan destinasi terbaik sesuai kemauanmu!</p>
-        <a href="{{ config('app.whatsapp') }}" class="button bg-white text-cyan-700 hover:bg-gray-200">Hubungi Kami</a>
+        <h2 class="text-3xl font-bold font-subtitle">Can't find the perfect fit?</h2>
+        <p class="mt-2 mb-8 max-w-2xl mx-auto">Contact me now, and I'll help you create the perfect custom itinerary based on your interests!</p>
+        <a href="{{ config('app.whatsapp') }}" class="button bg-white text-cyan-700 hover:bg-gray-200">Contact Me</a>
         
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16 max-w-5xl mx-auto">
             <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                <i class="icofont-price text-3xl"></i>
-                <h4 class="font-semibold mt-2">Jaminan Harga Termurah</h4>
+                <i class="icofont-wall-clock text-3xl"></i>
+                <h4 class="font-semibold mt-2">Flexible Hours</h4>
             </div>
             <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                <i class="icofont-shield-alt text-3xl"></i>
-                <h4 class="font-semibold mt-2">Aman & Terpercaya</h4>
-            </div>
-            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                <i class="icofont-headphone-alt-1 text-3xl"></i>
-                <h4 class="font-semibold mt-2">Bantuan Pelanggan 24/7</h4>
+                <i class="icofont-tags text-3xl"></i>
+                <h4 class="font-semibold mt-2">Special Activity Prices</h4>
             </div>
             <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
                 <i class="icofont-map-pins text-3xl"></i>
-                <h4 class="font-semibold mt-2">Itinerary Fleksibel</h4>
+                <h4 class="font-semibold mt-2">Custom Destinations</h4>
+            </div>
+            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                <i class="icofont-tasks-alt text-3xl"></i>
+                <h4 class="font-semibold mt-2">Variety of Activities</h4>
             </div>
         </div>
     </div>
 </section>
 
 {{-- ======================= FAQ SECTION ======================= --}}
-<section class="faq-section py-20">
+<!-- <section class="faq-section py-20">
     <div class="container mx-auto px-4">
         <h1 class="title">Frequently Asked Questions</h1>
         <div class="mt-10 max-w-4xl mx-auto divide-y">
@@ -190,7 +195,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 @include('components.footer')
 

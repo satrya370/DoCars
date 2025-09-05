@@ -1,7 +1,7 @@
 <div class="bg-gray-900 fixed w-full z-50 top-0">
   <div class="container mx-auto px-5 md:px-20 flex flex-wrap items-center justify-between mt-0 py-3 relative" id="container">
     <div class="flex items-center">
-      <a href="/" class="text-white text-2xl tracking-tight font-title" id="title">My Tour Bali</a>
+      <a href="/" class="text-white text-2xl tracking-tight font-title" id="title">DoCars</a>
     </div>
     <div class="block lg:hidden pr-4">
       <button class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-emerald-300 hover:border-emtext-emerald-300" id="menu-button">
@@ -11,23 +11,21 @@
     <div class="w-full h-screen md:h-auto flex-grow lg:flex lg:items-center lg:w-auto hidden active:flex mt-2 lg:mt-0 lg:bg-transparent p-4 lg:p-0 z-20 " id="nav-content">
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#about">About</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/about-me">About</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#services">Services</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/activities">Activity</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#destinations">Top Destination</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/tour-packages">Tours</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#tour-packages">Tour Packages</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/airport">Airport Tranfers</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#gallery">Gallery</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/cars">Car Charter</a>
         </li>
-        <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#testimonial">Testimoni</a>
-        </li>
+        
         <li class="mr-3 text-center">
           <a class="button w-full py-2 px-4 font-subtitle" href="{{ config('app.whatsapp') }}">Book Now!</a>
         </li>

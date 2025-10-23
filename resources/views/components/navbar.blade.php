@@ -2,7 +2,7 @@
   <div class="container mx-auto px-5 md:px-20 flex flex-wrap items-center justify-between mt-0 py-4 md:py-2" id="container">
     <div class="flex items-center">
       <a href="/" class="text-emerald-700 text-3xl tracking-tight font-title" id="title">
-        My Tour Bali
+        Bali Tresna Travel
       </a>
     </div>
     <button id="button-search"><i class="icofont-search-1 text-2xl text-emerald-600 block md:hidden"></i></button>

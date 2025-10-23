@@ -1,0 +1,17 @@
+.git
+.gitignore
+node_modules
+vendor
+storage
+storage/*
+storage/app/*
+storage/framework/*
+storage/logs/*
+bootstrap/cache/*
+docker/mysql-data
+docker/postgres-data
+.env
+*.log
+*.zip
+*.tar
+*.tar.gz

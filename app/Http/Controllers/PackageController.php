@@ -25,9 +25,9 @@ class PackageController extends Controller
     public function index()
     {
 
-        $description = "Welcome to My Tour Bali, your premier travel and tourism agency located in the beautiful island of Bali. We offer a wide range of services, including airport transfers, tour packages, and car rentals. Our tour packages are designed to showcase the best of what Bali has to offer, from its stunning beaches and vibrant culture to its rich history and natural beauty. Our team of professional and friendly drivers will ensure that you have a safe and comfortable journey while exploring Bali. We invite you to browse our website and learn more about the services we offer. If you have any questions or would like to book a tour, please dont hesitate to contact us.";
+        $description = "Welcome to Bali Tresna Travel, your premier travel and tourism agency located in the beautiful island of Bali. We offer a wide range of services, including airport transfers, tour packages, and car rentals. Our tour packages are designed to showcase the best of what Bali has to offer, from its stunning beaches and vibrant culture to its rich history and natural beauty. Our team of professional and friendly drivers will ensure that you have a safe and comfortable journey while exploring Bali. We invite you to browse our website and learn more about the services we offer. If you have any questions or would like to book a tour, please dont hesitate to contact us.";
 
-        SEOTools::setTitle('My Tour Bali | Travel Bali | Tour & Travel Bali');
+        SEOTools::setTitle('Bali Tresna Travel | Travel Bali | Tour & Travel Bali');
         SEOTools::setDescription($description);
         SEOTools::opengraph()->setUrl(url()->current());
         SEOTools::opengraph()->addProperty('type', 'WebPage');
@@ -51,7 +51,7 @@ class PackageController extends Controller
             "Bali Activity"
         ]);
 
-        JsonLdMulti::setTitle("My Tour Bali | Travel Bali | Tour & Travel Bali");
+        JsonLdMulti::setTitle("Bali Tresna Travel | Travel Bali | Tour & Travel Bali");
         JsonLdMulti::setDescription($description);
         JsonLdMulti::setType('WebPage');
         JsonLdMulti::addImage('/img/logo-image.png');
@@ -101,12 +101,12 @@ class PackageController extends Controller
      */
     public function show(Package $package)
     {
-        SEOTools::setTitle("$package->name | My Tour Bali");
+        SEOTools::setTitle("$package->name | Bali Tresna Travel");
         SEOTools::setDescription(strip_tags($package->description));
         SEOTools::opengraph()->setUrl(url()->current());
         SEOTools::opengraph()->addProperty('type', 'WebPage');
         OpenGraph::addImage(asset('storage/' . $package->image));
-        JsonLdMulti::setTitle("$package->name |My Tour Bali");
+        JsonLdMulti::setTitle("$package->name |Bali Tresna Travel");
         JsonLdMulti::setDescription($package->description);
         JsonLdMulti::setType('WebPage');
         JsonLdMulti::addImage(asset('storage/' . $package->image));

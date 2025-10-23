@@ -45,7 +45,7 @@ Route::get('/airport', function () {
 });
 Route::get('/tour-pacakges', function () {
     return view('web.top-destination', [
-        'title' => 'THE TOP 10 Full Day Tours | My Tour Bali',
+        'title' => 'THE TOP 10 Full Day Tours | Bali Tresna Travel',
         'packages' => Package::where('category_id', '!=', 3)->get()
     ]);
 });

@@ -3,11 +3,11 @@
     <div class="flex flex-col md:flex-col lg:flex-row mx-auto md:justify-between lg:items-center">
       <div class="basis-1/3 flex flex-col md:px-32 lg:px-0">
         <h6 class="mb-4 font-title text-3xl md:text-center lg:text-left">
-          My Tour Bali
+          Bali Tresna Travel
         </h6>
         <div class="line-pattern mx-auto lg:ml-7"></div>
         <p class="-mt-5 md:text-center lg:text-left">
-          My Tour Bali is a reliable driver that can make your holiday in Bali memorable.
+          Bali Tresna Travel is a reliable driver that can make your holiday in Bali memorable.
         </p>
       </div>
       
@@ -49,15 +49,15 @@
               Social Media
             </h6>
             <p class="mb-4">
-              <a href="https://instagram.com/balidriverputu?igshid=ZDdkNTZiNTM=" class="text-emerald-600" target="_blank"><i class="icofont-instagram"></i> balidriverputu</a>
+              <a href="" class="text-emerald-600" target="_blank"><i class="icofont-instagram"></i> balitresnadriver</a>
             </p>
             <p class="mb-4">
-              <a href="https://www.facebook.com/putu.balidriver.3?mibextid=ZbWKwL" class="text-emerald-600" target="_blank">
-                <i class="icofont-facebook"></i> Putu Bali Driver</a>
+              <a href="" class="text-emerald-600" target="_blank">
+                <i class="icofont-facebook"></i> Bali Tresna Travel</a>
             </p>
             <p class="mb-4 block">
-              <a href="https://www.tripadvisor.com/Attraction_Review-g297697-d25288635-Reviews-My_Tour_Bali-Kuta_Kuta_District_Bali.html" class="text-emerald-600 flex justify-center md:justify-start" target="_blank">
-                <img src="/icofont/tripadvisor-logo.svg" alt="" class="w-5 mr-1 "> My Tour Bali
+              <a href="" class="text-emerald-600 flex justify-center md:justify-start" target="_blank">
+                <img src="/icofont/tripadvisor-logo.svg" alt="" class="w-5 mr-1 "> Bali Tresna Travel
               </a>
             </p>
           </div>
@@ -67,17 +67,17 @@
             </h6>
             <p class="mb-4">
               <a href="mailto:darma_eka89@yahoo.co.id" class="">
-                <i class="icofont-email"></i> darma_eka89@yahoo.co.id</a>
+                <i class="icofont-email"></i> lorem@yahoo.co.id</a>
             </p>
             <p class="mb-4">
               <a href="{{ config('app.whatsapp') }}" class="">
-                <i class="icofont-whatsapp"></i> +62-858-8882-1190
+                <i class="icofont-whatsapp"></i> +62-8948493241
               </a>
             </p>
             <p class="mb-4">
               <a href="https://wa.me/6285737691010" class="">
                 <i class="icofont-whatsapp"></i> 
-                +62-857-3769-1010 (Putu)
+                +62-719234311 (Lorem)
               </a>
             </p>
           </div>
@@ -87,6 +87,6 @@
   </div>
   <div class="text-center p-6 bg-gray-900 line border-t-2 border-emerald-100">
     <span>© 2023 Copyright:</span>
-    <a class="text-emerald-600 font-semibold" href="/">My Tour Bali</a>
+    <a class="text-emerald-600 font-semibold" href="/">Bali Tresna Travel</a>
   </div>
 </footer>

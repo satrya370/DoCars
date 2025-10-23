@@ -279,7 +279,7 @@
             </li>
              <li class="flex items-center">
                 <i class="icofont-web text-gray-500 mr-4 text-xl"></i>
-                <span>www.mytourbali.com</span>
+                <span>www.tresnatravel.com</span>
             </li>
          </ul>
        </div>

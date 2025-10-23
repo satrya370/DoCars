@@ -109,7 +109,7 @@
                     <div class="p-5 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold font-subtitle mt-1 mb-3 text-gray-800">{{ $activity->name }}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed flex-grow">
-                             {{ \Illuminate\Support\Str::limit($package->description, 120, '...') }}
+                             {{ \Illuminate\Support\Str::limit($activity->description, 120, '...') }}
                         </p>
                         <div class="mt-6 pt-4 border-t flex justify-between items-center">
                             <div>

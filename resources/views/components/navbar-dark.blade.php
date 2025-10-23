@@ -11,21 +11,23 @@
     <div class="w-full h-screen md:h-auto flex-grow lg:flex lg:items-center lg:w-auto hidden active:flex mt-2 lg:mt-0 lg:bg-transparent p-4 lg:p-0 z-20 " id="nav-content">
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/about-me">About</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#about">About</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/activities">Activity</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#services">Services</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/tour-packages">Tours</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#destinations">Top Destination</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/airport">Airport Tranfers</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#tour-packages">Tour Packages</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="/cars">Car Charter</a>
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#gallery">Gallery</a>
         </li>
-        
+        <li class="mr-3">
+          <a class="inline-block text-white no-underline hover:text-emerald-200 hover:text-underline py-2 px-4" href="#testimonial">Testimoni</a>
+        </li>
         <li class="mr-3 text-center">
           <a class="button w-full py-2 px-4 font-subtitle" href="{{ config('app.whatsapp') }}">Book Now!</a>
         </li>

@@ -10,19 +10,19 @@
 
         <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1558005530-a7958896ec60?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"> 
             <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-10 md:px-4">
-                Jelajahi Surga Tersembunyi
+                Discover Bali, Discover Yourself, With Us 
             </h1>
         </div>
         
         <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
             <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-10 md:px-4">
-                Santai & Lepaskan Penat
+                Your Paradise Awaits in Bali.
             </h1>
         </div>
         
-        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('...');">
+        <div class="swiper-slide flex justify-center items-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1500213721845-709b85a28da0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470');">
             <h1 class="text-white text-4xl md:text-6xl font-extrabold text-center drop-shadow-xl px-10 md:px-4">
-                Nikmati Keindahan Alam
+                From Beaches to Temples — Experience the Magic of Bali.
             </h1>
         </div>
 

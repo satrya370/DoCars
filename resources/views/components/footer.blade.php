@@ -86,7 +86,7 @@
     </div>
   </div>
   <div class="text-center p-6 bg-gray-900 line border-t-2 border-emerald-100">
-    <span>© 2023 Copyright:</span>
+    <span>© 2025 Copyright:</span>
     <a class="text-emerald-600 font-semibold" href="/">Bali Tresna Travel</a>
   </div>
 </footer>

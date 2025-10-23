@@ -109,12 +109,12 @@
                     <div class="p-5 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold font-subtitle mt-1 mb-3 text-gray-800">{{ $activity->name }}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed flex-grow">
-                            {{ \Illuminate\Support\Str::limit($activity->short_description, 120, '...') }}
+                             {{ \Illuminate\Support\Str::limit($package->description, 120, '...') }}
                         </p>
                         <div class="mt-6 pt-4 border-t flex justify-between items-center">
                             <div>
                                 <span class="text-xs text-gray-500">from</span>
-                                <p class="text-lg font-bold text-gray-900">Rp {{ number_format($activity->price,0,',','.') }}</p>
+                                <p class="text-lg font-bold text-gray-900">Rp {{ number_format($package->price * 1000) }}</p>
                             </div>
                             <a href="/tour/{{ $activity->slug }}" class="px-4 py-2 border rounded-full text-sm font-semibold text-cyan-600 border-cyan-600 hover:bg-cyan-600 hover:text-white transition-all">
                                 View More

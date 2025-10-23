@@ -207,10 +207,10 @@
       </div>
 
       <div class="pt-8 border-t text-center">
-        <h2 class="text-[24px] font-bold font-subtitle">Siap Berpetualang?</h2>
-        <p class="text-[20px] text-gray-600 mt-2 mb-6">Masih ada pertanyaan atau sudah siap memesan perjalanan Anda? Hubungi kami sekarang!</p>
+        <h2 class="text-[24px] font-bold font-subtitle">Ready for Adventure?</h2>
+        <p class="text-[20px] text-gray-600 mt-2 mb-6">Still have questions or ready to book your trip? Contact us now!</p>
         <a href="{{ config('app.whatsapp') }}?text=Hello,%20I'm%20interested%20in%20the%20{{ urlencode($package->name) }}%20tour%20package." class="inline-block bg-emerald-500 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-emerald-600 transition-colors duration-300">
-            <i class="icofont-brand-whatsapp"></i> Hubungi via WhatsApp
+            <i class="icofont-brand-whatsapp"></i> Contact via WhatsApp
         </a>
       </div>
       </div>
@@ -231,27 +231,27 @@
       </div>
       {{-- Isi Kotak --}}
       <div class="p-6">
-        <h3 class="font-semibold text-gray-800 mb-4">Termasuk Dalam Paket:</h3>
+        <h3 class="font-semibold text-gray-800 mb-4">Inclusions:</h3>
         <ul class="space-y-3 text-gray-700 mb-6">
           <li class="flex items-start">
             <i class="icofont-car text-emerald-500 mr-3 mt-1"></i>
-            <span>Mobil Pribadi Full AC</span>
+            <span>Private Car with Full AC</span>
           </li>
           <li class="flex items-start">
             <i class="icofont-user-suited text-emerald-500 mr-3 mt-1"></i>
-            <span>Driver Profesional Berbahasa Inggris</span>
+            <span>Professional English-Speaking Driver</span>
           </li>
           <li class="flex items-start">
             <i class="icofont-ticket-alt text-emerald-500 mr-3 mt-1"></i>
-            <span>Semua Tiket Masuk Objek Wisata</span>
+            <span>All Entrance Tickets to Tourist Attractions</span>
           </li>
           <li class="flex items-start">
             <i class="icofont-prestashop text-emerald-500 mr-3 mt-1"></i>
-            <span>Biaya Parkir</span>
+            <span>Parking Fees</span>
           </li>
            <li class="flex items-start">
             <i class="icofont-bottle text-emerald-500 mr-3 mt-1"></i>
-            <span>Air Mineral</span>
+            <span>Mineral Water</span>
           </li>
         </ul>
         {{-- Tombol Book Now --}}

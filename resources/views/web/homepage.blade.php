@@ -109,7 +109,7 @@
 {{-- ====================================================================== --}}
 {{-- ================ BLOK UTAMA PENAWARAN (START) ======================== --}}
 {{-- ====================================================================== --}}
-<section id="featured-offers" class="w-full bg-gradient-to-b from-sky-100 to-gray-50 py-20">
+<section id="top-destinations" class="w-full bg-gradient-to-b from-sky-100 to-gray-50 py-20">
 
   {{-- -------------------------------------------------- --}}
   {{-- ----------------- TOP DESTINATIONS ----------------- --}}

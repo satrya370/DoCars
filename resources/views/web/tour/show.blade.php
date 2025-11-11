@@ -23,10 +23,6 @@
             Including Driver & Guide
           </div>
           <div class="flex items-center text-sm text-gray-600">
-            <i class="icofont-location-pin text-cyan-600 mr-2 text-xl"></i>
-            Includes Pickup Airport and Hotels
-          </div>
-          <div class="flex items-center text-sm text-gray-600">
             <i class="icofont-calendar text-cyan-600 mr-2 text-xl"></i>
             Free Cancellation Fee
           </div>
@@ -107,7 +103,7 @@
               @click="openDays[{{ (int)$day }}] = !openDays[{{ (int)$day }}]"
               class="w-full flex items-center justify-between px-4 py-3"
           >
-              <span class="font-semibold text-lg">Day {{ $day }}</span>
+              <span class="font-semibold text-lg">Option {{ $day }}</span>
               <i class="icofont-simple-down text-2xl text-gray-500 transition-transform duration-300"
                 :class="{ 'rotate-180': openDays[{{ (int)$day }}] }"></i>
             </button>
